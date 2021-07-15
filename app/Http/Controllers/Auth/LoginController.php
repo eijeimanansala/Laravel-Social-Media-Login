@@ -74,4 +74,35 @@ class LoginController extends Controller
         
     }
 
+    public function redirectToFacebook()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function handleFacebookCallback()
+    {
+        $user = Socialite::driver('facebook')->user();
+
+        // Find User
+        $authUser = User::where('email', $user->email)->first();
+        if($authUser){
+            Auth::login($authUser);
+            return redirect()->route('home');
+        }
+        else{
+            $newUser = new User();
+            $newUser->email = $user->email;
+            $newUser->name = $user->name;
+            $newUser->email_verified_at = Date::now();
+            $newUser->userid = $user->id;
+            $newUser->avatar = $user->avatar;
+            $newUser->save();
+
+            // Login
+            Auth::login($newUser);
+            return redirect()->route('home');
+        }
+        
+    }
+
 }

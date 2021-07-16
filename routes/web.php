@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/category', 'CategoryController@index')->name('category');
+    Route::get('/category/animals', 'CategoryController@categoryanimals')->name('category.animals');
+    Route::get('/category/cars', 'CategoryController@categorycars')->name('category.cars');
+});
 
 Route::get('login/google', 'Auth\LoginController@redirectToGoogle')->name('login.google');
 Route::get('login/google/callback', 'Auth\LoginController@handleGoogleCallback');

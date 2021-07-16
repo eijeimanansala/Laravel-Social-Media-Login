@@ -56,7 +56,7 @@ class LoginController extends Controller
         $authUser = User::where('email', $user->email)->first();
         if($authUser){
             Auth::login($authUser);
-            return redirect()->route('home');
+            return redirect()->route('category');
         }
         else{
             $newUser = new User();
@@ -69,7 +69,7 @@ class LoginController extends Controller
 
             // Login
             Auth::login($newUser);
-            return redirect()->route('home');
+            return redirect()->route('category');
         }
         
     }
@@ -87,7 +87,7 @@ class LoginController extends Controller
         $authUser = User::where('email', $user->email)->first();
         if($authUser){
             Auth::login($authUser);
-            return redirect()->route('home');
+            return redirect()->route('category');
         }
         else{
             $newUser = new User();
@@ -100,7 +100,7 @@ class LoginController extends Controller
 
             // Login
             Auth::login($newUser);
-            return redirect()->route('home');
+            return redirect()->route('category');
         }
         
     }

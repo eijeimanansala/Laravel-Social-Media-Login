@@ -23,10 +23,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => 'auth'], function() {
-    Route::get('/category', 'CategoryController@index')->name('category');
-    Route::get('/category/animals', 'CategoryController@animals')->name('category.animals');
-    Route::get('/category/cars', 'CategoryController@cars')->name('category.cars');
+Route::group(['middleware' => 'auth', 'prefix' => 'category'], function() {
+    Route::get('/', 'CategoryController@index')->name('category');
+    Route::get('/animals', 'CategoryController@animals')->name('category.animals');
+    Route::get('/cars', 'CategoryController@cars')->name('category.cars');
 });
 
 Route::get('login/google', 'Auth\LoginController@redirectToGoogle')->name('login.google');

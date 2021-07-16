@@ -8,6 +8,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Styles -->
         <style>
@@ -48,16 +50,6 @@
                 font-size: 84px;
             }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
             .m-b-md {
                 margin-bottom: 30px;
             }
@@ -71,10 +63,12 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ route('category.animals') }}" class="btn btn-light btn-block">Animals</a>
+                    <a href="{{ route('category.animals') }}" class="btn btn-secondary btn-block">Animals</a>
                     <a href="{{ route('category.cars') }}" class="btn btn-primary btn-block">Cars</a>
                 </div>
             </div>
         </div>
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>    
     </body>
 </html>

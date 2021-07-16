@@ -25,8 +25,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/category', 'CategoryController@index')->name('category');
-    Route::get('/category/animals', 'CategoryController@categoryanimals')->name('category.animals');
-    Route::get('/category/cars', 'CategoryController@categorycars')->name('category.cars');
+    Route::get('/category/animals', 'CategoryController@animals')->name('category.animals');
+    Route::get('/category/cars', 'CategoryController@cars')->name('category.cars');
 });
 
 Route::get('login/google', 'Auth\LoginController@redirectToGoogle')->name('login.google');

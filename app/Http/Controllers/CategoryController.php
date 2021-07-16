@@ -12,12 +12,12 @@ class CategoryController extends Controller
         return view('category');
     }
 
-    public function categoryanimals() {
+    public function animals() {
         $data['animals'] = Animal::all();
         return view('animals', $data);
     }
 
-    public function categorycars() {
+    public function cars() {
        $data['cars'] = Car::all();
        return view('cars', $data);
     }
